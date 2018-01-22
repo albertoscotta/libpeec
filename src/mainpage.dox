@@ -1,0 +1,62 @@
+/**
+ * \mainpage
+ *
+ * This library provides core functions for a triangular-mesh-based PEEC code.
+ *
+ * \section Introduction
+ * Partial Element Equivalent Circuit is one scheme for the numerical solution
+ * of electromagnetic problems, solved by setting up an equivalent circuit.
+ * Functions are available for the evaluation of resistive, inductive and
+ * capacitive parameters, in the form of sparse and dense matrices. A general
+ * introduction to the topic can be found on
+ * <a href="https://en.wikipedia.org/wiki/Partial_element_equivalent_circuit">
+ * Wikipedia</a>.
+ *
+ * \section Usage
+ *
+ * Three include statements are necessary.
+ *
+ * \code
+ *  #include <peec/mesh.h>
+ *  #include <peec/constants.h>
+ *  #include <peec/coeff_mats.h>
+ * \endcode
+ *
+ * Before the actual electrical parameters can be computed, additional mesh
+ * geometrical and topological properties need to be evaluated from node
+ * coordinates and triangle-to-node connectivity matrix, known from
+ * previous meshing of the electromagnetic structure.
+ *
+ * \code
+ *  MESH* my_mesh;
+ *  my_mesh = build_mesh(node_num, face_num, node_coordinates, face2node_mat);
+ * \endcode
+ *
+ * The necessary constants are supplied by filling a \c CONSTS structure.
+ *
+ * \code
+ *  CONSTS my_consts;
+ *  set_constants(rel_permittivity, conductivity, thickness, &my_consts);
+ * \endcode
+ *
+ * Final step is to call the core function, supplying mesh and constants, which
+ * will return the electrical parameters.
+ *
+ * \code
+ *  COEFF_MATS* my_coeff_mats;
+ *  my_coeff_mats = build_coeff_mats(my_consts, my_mesh);
+ * \endcode
+ *
+ * Results are returned in the form of matrices defined in
+ * \c peec/utils/lin_algebra.h, which the user might want to include.
+ *
+ * Finally, when the mesh or the electrical coefficient matrices aren't needed
+ * anymore, it is good programming practice to free them up, in fact memory
+ * occupation can be quite relevant for meshes having thousands of elements.
+ *
+ * \code
+ *  destroy_coeff_mats(my_coeff_mats);
+ *  destroy_mesh(my_mesh);
+ * \endcode
+ *
+ */
