@@ -2,8 +2,8 @@ Libpeec
 =======
 
 The library provides core functions for the development of a
-triangular-mesh PEEC code.
-It has been written in the context of my Master's degree thesis in electrical
+triangular-mesh-based PEEC code.
+It has been written in the context of my master's degree thesis in electrical
 engineering.
 
 Project structure
@@ -16,8 +16,8 @@ Two main folders
 Building and installing
 -----------------------
 
-A makefile is provided in the the src directory. This makefile has the
-ability to build and install the target libpeec.a. In the src directory, type
+A makefile is provided in the 'src' directory. This makefile has the
+ability to build and install the target libpeec.a. In the 'src' directory, type
 
 	make
 
@@ -39,3 +39,12 @@ Usage
 -----
 
 Usage information can be found in the Doxygen generated documentation.
+
+Building examples
+--------------
+
+In the 'examples' directory, type
+
+	make
+
+The examples will be generated, provided that library is correctly installed.
