@@ -21,7 +21,7 @@ functions: RWG or Mackenzie. The default behaviour is to use RWG, however this
 can be changed by adding '-D MACKENZIE' to the variable 'CC\_OPTS' defined in
 the Makefile. An additional possibility is to choose a rectangular
 approximation, instead of the default trapezoidal, for partial inductance line
-integrals, adding '-D RECT\_APROX'.
+integrals, adding '-D RECT\_APPROX'.
 
 A Makefile is provided in the 'src' directory. This Makefile has the
 ability to build and install the target libpeec.a. In the 'src' directory, type
