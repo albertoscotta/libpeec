@@ -1,4 +1,4 @@
-LIB = ../libpeec.a
+LIB = libpeec.a
 AR = ar
 AR_OPTS = r
 CC = gcc
@@ -14,14 +14,14 @@ LIBDIR = /usr/local/lib
 INCLUDEDIR = /usr/local/include/peec
 DOCDIR = ../doc
 
-$(LIB): $(OBJS)
+../$(LIB): $(OBJS)
 	$(AR) $(AR_OPTS) $@ $(OBJS)
 
 %.o: %.c $(MAKEFILE) $(INCLUDE)
 	$(CC) $(CC_OPTS) -c $< -o $@
 
 install:
-	cp $(LIB) $(LIBDIR)
+	cp ../$(LIB) $(LIBDIR)
 	mkdir $(INCLUDEDIR)
 	cp --parents $(INCLUDE) $(INCLUDEDIR)
 
@@ -34,7 +34,7 @@ doc:
 	doxygen
 
 clean:
-	rm -f $(LIB) $(OBJS)
+	rm -f ../$(LIB) $(OBJS)
 	rm -rf $(DOCDIR)
 
 .PHONY: install uninstall doc clean
