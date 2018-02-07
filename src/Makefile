@@ -2,7 +2,7 @@ LIB = libpeec.a
 AR = ar
 AR_OPTS = r
 CC = gcc
-CC_OPTS = -g -Wall --std=c99 -fopenmp -D DEBUG #-D MACKENZIE -D RECT_APPROX  
+CC_OPTS = --std=c99 -fopenmp -D DEBUG #-D MACKENZIE -D RECT_APPROX  
 OBJS = coeff_mats.o mesh.o constants.o utils/lin_algebra.o \
 	utils/integrals.o coeff_mats/rp_mat.o coeff_mats/pp_mat.o \
 	coeff_mats/lp_mat.o
